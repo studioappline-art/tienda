@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GothPlatform | Edición Pastel Alt</title>
-    <meta name="description" content="Botas de plataforma estilo Alt & Goth. Elige tus tonos favorito en Rosa Pastel, Azul Pastel o Negro.">
+    <title>Marlen Roman | Botas Alt & Plataformas</title>
+    <meta name="description" content="Marlen Roman - Botas de plataforma estilo Alt & Goth. Ventas en USA y México.">
     
     <!-- Open Graph (Facebook/WhatsApp preview) -->
-    <meta property="og:title" content="Botas de Plataforma - Edición Pastel Goth">
-    <meta property="og:description" content="Diseño con plataforma extrema, detalles góticos y tonos pastel. ¡Pide las tuyas hoy!">
+    <meta property="og:title" content="Marlen Roman - Botas de Plataforma">
+    <meta property="og:description" content="Diseños exclusivos de plataformas extremas. Ventas en USA y México.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?q=80&w=1200&auto=format&fit=crop">
 
     <!-- Google Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@400;600;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Bootstrap 5 & AOS Animations -->
@@ -46,7 +46,17 @@
             text-transform: uppercase;
         }
 
-        /* Gradient Texts */
+        /* Logo Marlen Roman */
+        .logo-marlen {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            color: var(--pink-pastel) !important;
+            letter-spacing: 2px;
+            font-size: 1.6rem;
+            text-shadow: 0 0 10px var(--pink-glow);
+            text-transform: none;
+        }
+
         .text-pastel-pink { color: var(--pink-pastel) !important; }
         .text-pastel-blue { color: var(--blue-pastel) !important; }
         
@@ -112,18 +122,44 @@
             filter: drop-shadow(0 0 10px var(--blue-glow));
         }
 
+        /* Galería de Fotos interactiva */
+        .gallery-item-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+        }
+        
         .gallery-img {
-            transition: transform 0.3s ease, filter 0.3s ease;
+            transition: transform 0.4s ease, filter 0.3s ease;
             cursor: pointer;
             border: 2px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
         }
-        .gallery-img:hover {
-            transform: scale(1.06);
+        
+        .gallery-item-wrapper:hover .gallery-img {
+            transform: scale(1.08);
             border-color: var(--pink-pastel);
             box-shadow: 0 0 20px var(--pink-glow);
         }
 
-        /* Interactive Selectors */
+        .click-badge {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(13, 13, 17, 0.85);
+            border: 1px solid var(--blue-pastel);
+            color: var(--blue-pastel);
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Selectores */
         .color-dot {
             width: 38px;
             height: 38px;
@@ -163,7 +199,7 @@
             box-shadow: 0 0 15px var(--pink-glow);
         }
 
-        /* Custom Buttons */
+        /* Botones */
         .btn-pink {
             background: var(--pink-pastel);
             color: var(--black-pure);
@@ -197,21 +233,7 @@
             box-shadow: 0 0 25px var(--blue-glow);
         }
 
-        .step-number {
-            width: 60px;
-            height: 60px;
-            line-height: 56px;
-            border-radius: 50%;
-            background: var(--black-pure);
-            border: 2px solid var(--pink-pastel);
-            color: var(--pink-pastel);
-            font-size: 1.6rem;
-            font-weight: bold;
-            margin: 0 auto;
-            box-shadow: 0 0 15px var(--pink-glow);
-        }
-
-        /* Floating Toast Notification */
+        /* Toast Floating */
         .custom-toast {
             position: fixed;
             bottom: 30px;
@@ -232,7 +254,7 @@
             opacity: 1;
         }
 
-        /* WhatsApp Button */
+        /* Floating WhatsApp Button */
         .whatsapp-float {
             position: fixed;
             width: 60px;
@@ -270,20 +292,23 @@
 </head>
 <body>
 
-    <!-- Toast de Notificación Interactivo -->
+    <!-- Toast Notification -->
     <div id="actionToast" class="custom-toast d-flex align-items-center gap-2">
         <i class="fa-solid fa-sparkles text-pastel-pink fs-4"></i>
-        <span id="toastMessage">¡Producto añadido al carrito!</span>
+        <span id="toastMessage">¡Vista ampliada generada!</span>
     </div>
 
     <!-- Navbar Transparente -->
     <nav class="navbar navbar-expand-lg fixed-top glass-nav">
-        <div class="container">
-            <a class="navbar-brand fw-bold text-white brand-font" href="#">
-                <i class="fa-solid fa-skull me-2 text-pastel-pink"></i>DARK<span class="text-pastel-blue">PASTEL</span>
+        <div class="container d-flex justify-content-between align-items-center">
+            <!-- Logo Marlen Roman -->
+            <a class="navbar-brand logo-marlen" href="#">
+                <i class="fa-solid fa-crown me-2"></i>Marlen Roman
             </a>
+            
+            <!-- Badge Envíos -->
             <span class="badge rounded-pill px-3 py-2 bg-dark border border-warning text-warning">
-                <i class="fa-solid fa-bolt me-1"></i> ¡Edición Limitada!
+                <i class="fa-solid fa-plane me-1"></i> Ventas en USA y México
             </span>
         </div>
     </nav>
@@ -294,14 +319,14 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 text-center text-lg-start" data-aos="fade-right">
                     <span class="badge bg-dark border border-info text-pastel-blue mb-3 px-3 py-2 fw-bold">
-                        <i class="fa-solid fa-gem me-1"></i> PLATAFORMAS EXTREMAS
+                        <i class="fa-solid fa-earth-americas me-1"></i> Envíos Seguros a USA y México
                     </span>
                     <h1 class="display-3 gradient-title mb-3">Elevando tu estilo al siguiente nivel.</h1>
                     <p class="lead text-light mb-4 opacity-75">
-                        Inspiradas en la cultura Alt, Gothic & Cyberpunk. Botas de plataforma chunky construidas con materiales de alta durabilidad, máxima comodidad y acabado único.
+                        Diseño exclusivo por <strong>Marlen Roman</strong>. Botas de plataforma chunky construidas con materiales de alta durabilidad, máxima comodidad y estilo gótico pastel.
                     </p>
                     
-                    <!-- Interacción: Selección de Color y Talla -->
+                    <!-- Seleccion de Color y Talla -->
                     <div class="glass-card p-4 mb-4">
                         <div class="mb-3">
                             <label class="fw-bold mb-2 text-pastel-pink d-block">1. Selecciona tu Color:</label>
@@ -330,85 +355,61 @@
                         <button onclick="triggerPurchase()" class="btn btn-pink btn-lg">
                             <i class="fa-solid fa-cart-shopping me-2"></i> COMPRAR AHORA
                         </button>
-                        <a href="https://wa.me/1234567890?text=Hola,%20quiero%20consultar%20por%20las%20botas%20de%20plataforma" target="_blank" class="btn btn-blue-outline btn-lg">
+                        <a href="https://wa.me/1234567890?text=Hola%20Marlen%20Roman,%20quiero%20información%20de%20envíos%20a%20USA/México" target="_blank" class="btn btn-blue-outline btn-lg">
                             <i class="fa-brands fa-whatsapp me-2"></i> WhatsApp
                         </a>
                     </div>
 
                     <!-- Insignias -->
                     <div class="row pt-3 border-top border-secondary text-light opacity-75 g-2">
-                        <div class="col-4"><i class="fa-solid fa-truck text-pastel-blue me-1"></i> Envío Exprés</div>
+                        <div class="col-4"><i class="fa-solid fa-truck text-pastel-blue me-1"></i> USA & México</div>
                         <div class="col-4"><i class="fa-solid fa-shield-cat text-pastel-pink me-1"></i> 100% Vegano</div>
                         <div class="col-4"><i class="fa-solid fa-rotate-left text-warning me-1"></i> Cambios Gratis</div>
                     </div>
                 </div>
 
-                <!-- Imagen Principal con Previsualizador -->
+                <!-- Imagen Principal -->
                 <div class="col-lg-6 mt-5 mt-lg-0 text-center" data-aos="zoom-in">
                     <div class="hero-img-container">
-                        <img id="mainProductImg" src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?q=80&w=1000&auto=format&fit=crop" alt="Botas con Plataforma Alt" class="img-fluid rounded-4 hero-img">
+                        <img id="mainProductImg" src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?q=80&w=1000&auto=format&fit=crop" alt="Botas Marlen Roman" class="img-fluid rounded-4 hero-img">
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Beneficios -->
-    <section class="py-5 bg-black text-white">
-        <div class="container py-5">
-            <div class="text-center mb-5" data-aos="fade-up">
-                <h2 class="display-5 text-pastel-pink">¿Por qué nuestras plataformas?</h2>
-                <p class="text-muted">Diseño extremo sin sacrificar tu comodidad</p>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
-                    <div class="glass-card p-4 text-center h-100">
-                        <i class="fa-solid fa-layer-group icon-gradient-pink mb-3"></i>
-                        <h4>Plataforma Ultra Lite</h4>
-                        <p class="text-muted fs-6">Suela sobredimensionada de EVA ligera para usarlas todo el día sin fatiga.</p>
-                    </div>
-                </div>
-                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
-                    <div class="glass-card p-4 text-center h-100">
-                        <i class="fa-solid fa-heart-crack icon-gradient-blue mb-3"></i>
-                        <h4>Estética Pastel Goth</h4>
-                        <p class="text-muted fs-6">Fusión única entre detalles góticos oscuros y tonos pastel de tendencia.</p>
-                    </div>
-                </div>
-                <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
-                    <div class="glass-card p-4 text-center h-100">
-                        <i class="fa-solid fa-lock icon-gradient-pink mb-3"></i>
-                        <h4>Ajuste y Hebillas</h4>
-                        <p class="text-muted fs-6">Doble cordón reforzado y hebillas metálicas antioxidantes.</p>
-                    </div>
-                </div>
-                <div class="col-md-3" data-aos="fade-up" data-aos-delay="400">
-                    <div class="glass-card p-4 text-center h-100">
-                        <i class="fa-solid fa-feather icon-gradient-blue mb-3"></i>
-                        <h4>100% Cuero Sintético</h4>
-                        <p class="text-muted fs-6">Materiales libres de crueldad animal, resistentes al agua y fáciles de limpiar.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Galería de Fotos -->
+    <!-- Galería Dinámica e Interactiva -->
     <section class="py-5 bg-dark text-white">
         <div class="container py-5">
-            <h2 class="text-center display-6 text-pastel-blue mb-5" data-aos="fade-up">Galería de Estilos</h2>
-            <div class="row g-4">
-                <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="100">
-                    <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=600&auto=format&fit=crop" class="img-fluid rounded-4 gallery-img shadow" alt="Botas Foto 1" onclick="changeMainImg(this.src)">
+            <div class="text-center mb-4" data-aos="fade-up">
+                <h2 class="display-6 text-pastel-pink">Galería de Modelos</h2>
+                <p class="text-pastel-blue"><i class="fa-solid fa-hand-pointer me-1"></i> Haz clic en una foto para generar una vista angular extra de este zapato</p>
+            </div>
+            
+            <div class="row g-4" id="galleryContainer">
+                <div class="col-6 col-md-3 gallery-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="gallery-item-wrapper" onclick="duplicateAndAddView('https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=600&auto=format&fit=crop', 'Vista Frontal Rosa')">
+                        <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=600&auto=format&fit=crop" class="img-fluid rounded-4 gallery-img shadow" alt="Botas Foto 1">
+                        <span class="click-badge">+ Generar Ángulo</span>
+                    </div>
                 </div>
-                <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?q=80&w=600&auto=format&fit=crop" class="img-fluid rounded-4 gallery-img shadow" alt="Botas Foto 2" onclick="changeMainImg(this.src)">
+                <div class="col-6 col-md-3 gallery-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="gallery-item-wrapper" onclick="duplicateAndAddView('https://images.unsplash.com/photo-1608256246200-53e635b5b65f?q=80&w=600&auto=format&fit=crop', 'Vista Lateral Negra')">
+                        <img src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?q=80&w=600&auto=format&fit=crop" class="img-fluid rounded-4 gallery-img shadow" alt="Botas Foto 2">
+                        <span class="click-badge">+ Generar Ángulo</span>
+                    </div>
                 </div>
-                <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="300">
-                    <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=600&auto=format&fit=crop" class="img-fluid rounded-4 gallery-img shadow" alt="Botas Foto 3" onclick="changeMainImg(this.src)">
+                <div class="col-6 col-md-3 gallery-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="gallery-item-wrapper" onclick="duplicateAndAddView('https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=600&auto=format&fit=crop', 'Suela y Detalle Azul')">
+                        <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=600&auto=format&fit=crop" class="img-fluid rounded-4 gallery-img shadow" alt="Botas Foto 3">
+                        <span class="click-badge">+ Generar Ángulo</span>
+                    </div>
                 </div>
-                <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="400">
-                    <img src="https://images.unsplash.com/photo-1535043934128-cf0b28d52f95?q=80&w=600&auto=format&fit=crop" class="img-fluid rounded-4 gallery-img shadow" alt="Botas Foto 4" onclick="changeMainImg(this.src)">
+                <div class="col-6 col-md-3 gallery-card" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="gallery-item-wrapper" onclick="duplicateAndAddView('https://images.unsplash.com/photo-1535043934128-cf0b28d52f95?q=80&w=600&auto=format&fit=crop', 'Vista Trasera Alt')">
+                        <img src="https://images.unsplash.com/photo-1535043934128-cf0b28d52f95?q=80&w=600&auto=format&fit=crop" class="img-fluid rounded-4 gallery-img shadow" alt="Botas Foto 4">
+                        <span class="click-badge">+ Generar Ángulo</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -420,19 +421,12 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8" data-aos="zoom-in">
                     <span class="badge bg-danger fs-6 px-3 py-2 mb-3"><i class="fa-solid fa-clock me-1"></i> OFERTA HASTA AGOTAR STOCK</span>
-                    <h2 class="display-4 fw-bold mb-3 text-pastel-pink">Consigue tu par con 30% OFF</h2>
+                    <h2 class="display-4 fw-bold mb-3 text-pastel-pink">Consigue tu par exclusivo de Marlen Roman</h2>
                     
-                    <!-- Countdown Timer -->
-                    <div class="d-flex justify-content-center gap-3 my-4" id="countdown">
-                        <div class="time-box p-3 glass-card"><span id="hours" class="fs-2 fw-bold text-pastel-blue">02</span><small class="d-block text-uppercase">Hs</small></div>
-                        <div class="time-box p-3 glass-card"><span id="minutes" class="fs-2 fw-bold text-pastel-blue">45</span><small class="d-block text-uppercase">Min</small></div>
-                        <div class="time-box p-3 glass-card"><span id="seconds" class="fs-2 fw-bold text-pastel-blue">30</span><small class="d-block text-uppercase">Seg</small></div>
-                    </div>
-
                     <div class="price-container mb-4">
                         <span class="text-muted text-decoration-line-through fs-3 me-3">$120.00</span>
-                        <span class="display-3 fw-bold text-pastel-pink">$79.99</span>
-                        <div class="text-pastel-blue mt-2 fs-5"><i class="fa-solid fa-truck-fast"></i> Envíos a todo el país</div>
+                        <span class="display-3 fw-bold text-pastel-pink">$79.99 USD</span>
+                        <div class="text-pastel-blue mt-2 fs-5"><i class="fa-solid fa-truck-fast"></i> Ventas y Envíos directos a <strong>USA y México</strong></div>
                     </div>
 
                     <div class="d-grid gap-3 col-md-8 mx-auto">
@@ -445,50 +439,22 @@
         </div>
     </section>
 
-    <!-- Preguntas Frecuentes -->
-    <section class="py-5 bg-black text-white">
-        <div class="container py-5">
-            <h2 class="text-center display-6 text-pastel-blue mb-5" data-aos="fade-up">Preguntas Frecuentes</h2>
-            <div class="accordion accordion-flush custom-accordion mx-auto col-lg-8" id="faqAccordion">
-                <div class="accordion-item bg-transparent text-white border-bottom border-secondary">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed bg-transparent text-white fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                            ¿Las plataformas son muy pesadas?
-                        </button>
-                    </h2>
-                    <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body text-muted">¡Para nada! La suela está fabricada en polímero EVA aligerado, lo que reduce el peso en un 50% en comparación con botas convencionales.</div>
-                    </div>
-                </div>
-                <div class="accordion-item bg-transparent text-white border-bottom border-secondary">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed bg-transparent text-white fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                            ¿Qué pasa si la talla no me queda?
-                        </button>
-                    </h2>
-                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body text-muted">Ofrecemos el primer cambio de talla 100% gratis dentro de los primeros 15 días tras recibir tu producto.</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer class="py-5 bg-dark text-center text-white-50 border-top border-secondary">
         <div class="container">
-            <h5 class="text-white mb-3 brand-font">DARK<span class="text-pastel-pink">PASTEL</span></h5>
+            <h3 class="logo-marlen mb-2">Marlen Roman</h3>
+            <p class="text-pastel-blue fw-semibold mb-4"><i class="fa-solid fa-globe me-1"></i> Ventas en USA y México</p>
             <div class="social-icons mb-4">
                 <a href="#" class="text-pastel-pink mx-3 fs-3"><i class="fa-brands fa-tiktok"></i></a>
                 <a href="#" class="text-pastel-blue mx-3 fs-3"><i class="fa-brands fa-instagram"></i></a>
                 <a href="#" class="text-white mx-3 fs-3"><i class="fa-brands fa-pinterest"></i></a>
             </div>
-            <p class="mb-0">&copy;2026 DarkPastel Studio. Todos los derechos reservados.</p>
+            <p class="mb-0">&copy;2026 Marlen Roman. Todos los derechos reservados.</p>
         </div>
     </footer>
 
     <!-- Botón Flotante WhatsApp -->
-    <a href="https://wa.me/1234567890?text=Hola,%20me%20gustaría%20saber%20más%20sobre%20las%20botas" class="whatsapp-float" target="_blank" title="Contacto por WhatsApp">
+    <a href="https://wa.me/1234567890?text=Hola%20Marlen%20Roman,%20tengo%20una%20consulta" class="whatsapp-float" target="_blank" title="Contacto por WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
@@ -500,11 +466,19 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             AOS.init({ duration: 800, once: true });
-            startTimer(9900);
         });
 
         let selectedColor = "Rosa Pastel";
         let selectedSize = "37";
+
+        // Banco de imágenes alternativas para simular diferentes ángulos del mismo zapato
+        const extraAngles = [
+            'https://images.unsplash.com/photo-1511556532299-8f662fc26c06?q=80&w=600&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1560769629-975ec94e6a86?q=80&w=600&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?q=80&w=600&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?q=80&w=600&auto=format&fit=crop'
+        ];
+        let angleIndex = 0;
 
         function selectColor(element, colorName, imgSrc) {
             document.querySelectorAll('.color-dot').forEach(dot => dot.classList.remove('active'));
@@ -512,7 +486,6 @@
             selectedColor = colorName;
             document.getElementById('selectedColorText').textContent = colorName;
             
-            // Cambiar imagen según el color seleccionado
             const mainImg = document.getElementById('mainProductImg');
             mainImg.style.opacity = '0.3';
             setTimeout(() => {
@@ -527,49 +500,44 @@
             selectedSize = size;
         }
 
-        function changeMainImg(src) {
+        // Función para duplicar/agregar un nuevo módulo con ángulo diferente al hacer clic
+        function duplicateAndAddView(originalSrc, viewLabel) {
+            const container = document.getElementById('galleryContainer');
+            
+            // Actualizar la foto principal arriba
             const mainImg = document.getElementById('mainProductImg');
-            mainImg.style.opacity = '0.3';
-            setTimeout(() => {
-                mainImg.src = src;
-                mainImg.style.opacity = '1';
-            }, 200);
+            mainImg.src = originalSrc;
+
+            // Seleccionar un nuevo ángulo alternativo
+            const newImgSrc = extraAngles[angleIndex % extraAngles.length];
+            angleIndex++;
+
+            // Crear el nuevo elemento del dom para la galería
+            const newCol = document.createElement('div');
+            newCol.className = 'col-6 col-md-3 gallery-card';
+            newCol.innerHTML = `
+                <div class="gallery-item-wrapper" onclick="duplicateAndAddView('${newImgSrc}', 'Ángulo Extra Generado')">
+                    <img src="${newImgSrc}" class="img-fluid rounded-4 gallery-img shadow" alt="Ángulo Extra">
+                    <span class="click-badge" style="background: var(--pink-pastel); color: #000;">NUEVA VISTA</span>
+                </div>
+            `;
+            
+            container.appendChild(newCol);
+
+            // Mostrar toast
+            const toast = document.getElementById('actionToast');
+            const message = document.getElementById('toastMessage');
+            message.textContent = `¡Nuevo módulo cargado con un ángulo extra del zapato!`;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3000);
         }
 
         function triggerPurchase() {
             const toast = document.getElementById('actionToast');
             const message = document.getElementById('toastMessage');
-            message.textContent = `¡Añadido! Botas (${selectedColor}, Talla ${selectedSize}) cargadas al carrito.`;
+            message.textContent = `¡Añadido! Botas Marlen Roman (${selectedColor}, Talla ${selectedSize}) agregadas.`;
             toast.classList.add('show');
-            
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 3500);
-        }
-
-        function startTimer(durationInSeconds) {
-            let timer = durationInSeconds;
-            const hoursSpan = document.getElementById('hours');
-            const minutesSpan = document.getElementById('minutes');
-            const secondsSpan = document.getElementById('seconds');
-
-            setInterval(function () {
-                let hours = parseInt(timer / 3600, 10);
-                let minutes = parseInt((timer % 3600) / 60, 10);
-                let seconds = parseInt(timer % 60, 10);
-
-                hours = hours < 10 ? "0" + hours : hours;
-                minutes = minutes < 10 ? "0" + minutes : minutes;
-                seconds = seconds < 10 ? "0" + seconds : seconds;
-
-                if (hoursSpan) hoursSpan.textContent = hours;
-                if (minutesSpan) minutesSpan.textContent = minutes;
-                if (secondsSpan) secondsSpan.textContent = seconds;
-
-                if (--timer < 0) {
-                    timer = durationInSeconds;
-                }
-            }, 1000);
+            setTimeout(() => toast.classList.remove('show'), 3500);
         }
     </script>
 </body>
