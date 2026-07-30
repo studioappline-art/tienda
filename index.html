@@ -3,109 +3,390 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Producto Premium | Edición Exclusiva</title>
-    <meta name="description" content="Miles de personas ya disfrutan este producto. Descubre por qué es el favorito de todos.">
+    <title>GothPlatform | Edición Pastel Alt</title>
+    <meta name="description" content="Botas de plataforma estilo Alt & Goth. Elige tus tonos favorito en Rosa Pastel, Azul Pastel o Negro.">
     
     <!-- Open Graph (Facebook/WhatsApp preview) -->
-    <meta property="og:title" content="Producto Premium - Oferta Especial">
-    <meta property="og:description" content="Envío gratis y garantía de satisfacción. Pide el tuyo hoy.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1200&auto=format&fit=crop">
+    <meta property="og:title" content="Botas de Plataforma - Edición Pastel Goth">
+    <meta property="og:description" content="Diseño con plataforma extrema, detalles góticos y tonos pastel. ¡Pide las tuyas hoy!">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?q=80&w=1200&auto=format&fit=crop">
 
     <!-- Google Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Bootstrap 5 & AOS Animations -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
-    <!-- Styles -->
-    <link rel="stylesheet" href="styles.css">
+    <!-- Estilos CSS Incorporados -->
+    <style>
+        :root {
+            --bg-main: #0d0d11;
+            --bg-card: rgba(22, 22, 30, 0.85);
+            --pink-pastel: #ffb6c1;
+            --pink-glow: rgba(255, 182, 193, 0.4);
+            --blue-pastel: #a2d2ff;
+            --blue-glow: rgba(162, 210, 255, 0.4);
+            --black-pure: #000000;
+            --text-light: #f5f5f7;
+            --text-muted: #a0a0b0;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-light);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .brand-font {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        /* Gradient Texts */
+        .text-pastel-pink { color: var(--pink-pastel) !important; }
+        .text-pastel-blue { color: var(--blue-pastel) !important; }
+        
+        .gradient-title {
+            background: linear-gradient(135deg, var(--pink-pastel), #ffffff, var(--blue-pastel));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Glassmorphism Navigation */
+        .glass-nav {
+            background: rgba(13, 13, 17, 0.85);
+            backdrop-filter: blur(15px);
+            border-bottom: 2px solid var(--pink-pastel);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: radial-gradient(circle at 80% 20%, var(--pink-glow), transparent 40%),
+                        radial-gradient(circle at 20% 80%, var(--blue-glow), transparent 40%);
+        }
+
+        .hero-img-container {
+            position: relative;
+        }
+
+        .hero-img {
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s ease;
+            border: 2px solid var(--pink-pastel);
+            box-shadow: 0 0 30px var(--pink-glow);
+        }
+        .hero-img:hover {
+            transform: scale(1.03) rotate(-1deg);
+            box-shadow: 0 0 45px var(--blue-glow);
+            border-color: var(--blue-pastel);
+        }
+
+        /* Glass Cards */
+        .glass-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 182, 193, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--blue-pastel);
+            box-shadow: 0 10px 30px var(--blue-glow);
+        }
+
+        .icon-gradient-pink {
+            font-size: 2.5rem;
+            color: var(--pink-pastel);
+            filter: drop-shadow(0 0 10px var(--pink-glow));
+        }
+
+        .icon-gradient-blue {
+            font-size: 2.5rem;
+            color: var(--blue-pastel);
+            filter: drop-shadow(0 0 10px var(--blue-glow));
+        }
+
+        .gallery-img {
+            transition: transform 0.3s ease, filter 0.3s ease;
+            cursor: pointer;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        .gallery-img:hover {
+            transform: scale(1.06);
+            border-color: var(--pink-pastel);
+            box-shadow: 0 0 20px var(--pink-glow);
+        }
+
+        /* Interactive Selectors */
+        .color-dot {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: inline-block;
+            border: 3px solid transparent;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .color-dot:hover {
+            transform: scale(1.15);
+        }
+        .color-dot.active {
+            border-color: #ffffff;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+            transform: scale(1.2);
+        }
+
+        .size-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-light);
+            padding: 8px 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s ease;
+        }
+        .size-btn:hover {
+            border-color: var(--pink-pastel);
+            color: var(--pink-pastel);
+        }
+        .size-btn.active {
+            background: var(--pink-pastel);
+            color: var(--black-pure);
+            border-color: var(--pink-pastel);
+            box-shadow: 0 0 15px var(--pink-glow);
+        }
+
+        /* Custom Buttons */
+        .btn-pink {
+            background: var(--pink-pastel);
+            color: var(--black-pure);
+            font-weight: 800;
+            border-radius: 30px;
+            padding: 14px 32px;
+            border: none;
+            box-shadow: 0 0 20px var(--pink-glow);
+            transition: all 0.3s ease;
+        }
+        .btn-pink:hover {
+            background: #ffa0b0;
+            color: var(--black-pure);
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px var(--pink-glow);
+        }
+
+        .btn-blue-outline {
+            background: transparent;
+            color: var(--blue-pastel);
+            font-weight: 800;
+            border-radius: 30px;
+            padding: 14px 32px;
+            border: 2px solid var(--blue-pastel);
+            transition: all 0.3s ease;
+        }
+        .btn-blue-outline:hover {
+            background: var(--blue-pastel);
+            color: var(--black-pure);
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px var(--blue-glow);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            line-height: 56px;
+            border-radius: 50%;
+            background: var(--black-pure);
+            border: 2px solid var(--pink-pastel);
+            color: var(--pink-pastel);
+            font-size: 1.6rem;
+            font-weight: bold;
+            margin: 0 auto;
+            box-shadow: 0 0 15px var(--pink-glow);
+        }
+
+        /* Floating Toast Notification */
+        .custom-toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--bg-card);
+            border: 2px solid var(--blue-pastel);
+            box-shadow: 0 0 25px var(--blue-glow);
+            color: var(--text-light);
+            padding: 15px 30px;
+            border-radius: 50px;
+            z-index: 2000;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+        .custom-toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--pink-pastel);
+            color: var(--black-pure);
+            border-radius: 50px;
+            text-align: center;
+            font-size: 32px;
+            box-shadow: 0px 0px 20px var(--pink-glow);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.15) rotate(10deg);
+            background-color: var(--blue-pastel);
+            color: var(--black-pure);
+        }
+
+        .custom-accordion .accordion-button:not(.collapsed) {
+            background-color: transparent;
+            color: var(--pink-pastel);
+            box-shadow: none;
+        }
+        .custom-accordion .accordion-button::after {
+            filter: invert(1) sepia(1) saturate(5) hue-rotate(280deg);
+        }
+    </style>
 </head>
 <body>
+
+    <!-- Toast de Notificación Interactivo -->
+    <div id="actionToast" class="custom-toast d-flex align-items-center gap-2">
+        <i class="fa-solid fa-sparkles text-pastel-pink fs-4"></i>
+        <span id="toastMessage">¡Producto añadido al carrito!</span>
+    </div>
 
     <!-- Navbar Transparente -->
     <nav class="navbar navbar-expand-lg fixed-top glass-nav">
         <div class="container">
-            <a class="navbar-brand fw-bold text-white" href="#"><i class="fa-solid fa-crown me-2 text-warning"></i>TU BRAND</a>
-            <span class="badge bg-danger rounded-pill px-3 py-2 dynamic-stock">
-                <i class="fa-solid fa-fire me-1"></i> ¡Últimas 7 unidades!
+            <a class="navbar-brand fw-bold text-white brand-font" href="#">
+                <i class="fa-solid fa-skull me-2 text-pastel-pink"></i>DARK<span class="text-pastel-blue">PASTEL</span>
+            </a>
+            <span class="badge rounded-pill px-3 py-2 bg-dark border border-warning text-warning">
+                <i class="fa-solid fa-bolt me-1"></i> ¡Edición Limitada!
             </span>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero-section d-flex align-items-center">
-        <div class="container text-center text-lg-start">
-            <div class="row align-items-center min-vh-100 py-5">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <span class="badge bg-warning text-dark mb-3 px-3 py-2 fw-bold"><i class="fa-solid fa-bolt me-1"></i> OPORTUNIDAD ÚNICA</span>
-                    <h1 class="display-3 fw-extrabold text-white mb-3">El producto que transforma tu día a día.</h1>
+    <header class="hero-section d-flex align-items-center min-vh-100">
+        <div class="container py-5 mt-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 text-center text-lg-start" data-aos="fade-right">
+                    <span class="badge bg-dark border border-info text-pastel-blue mb-3 px-3 py-2 fw-bold">
+                        <i class="fa-solid fa-gem me-1"></i> PLATAFORMAS EXTREMAS
+                    </span>
+                    <h1 class="display-3 gradient-title mb-3">Elevando tu estilo al siguiente nivel.</h1>
                     <p class="lead text-light mb-4 opacity-75">
-                        Miles de personas ya disfrutan este producto. Descubre por qué se ha convertido en uno de los favoritos. Calidad, envío rápido y garantía total para que compres con total confianza.
+                        Inspiradas en la cultura Alt, Gothic & Cyberpunk. Botas de plataforma chunky construidas con materiales de alta durabilidad, máxima comodidad y acabado único.
                     </p>
-                    <div class="d-flex align-items-center gap-2 mb-4">
-                        <div class="stars text-warning fs-5">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    
+                    <!-- Interacción: Selección de Color y Talla -->
+                    <div class="glass-card p-4 mb-4">
+                        <div class="mb-3">
+                            <label class="fw-bold mb-2 text-pastel-pink d-block">1. Selecciona tu Color:</label>
+                            <div class="d-flex align-items-center gap-3">
+                                <span class="color-dot active" style="background-color: #ffb6c1;" onclick="selectColor(this, 'Rosa Pastel', 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=1000&auto=format&fit=crop')"></span>
+                                <span class="color-dot" style="background-color: #111115;" onclick="selectColor(this, 'Negro Gótico', 'https://images.unsplash.com/photo-1608256246200-53e635b5b65f?q=80&w=1000&auto=format&fit=crop')"></span>
+                                <span class="color-dot" style="background-color: #a2d2ff;" onclick="selectColor(this, 'Azul Pastel', 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=1000&auto=format&fit=crop')"></span>
+                                <span id="selectedColorText" class="ms-2 fw-semibold text-pastel-blue">Rosa Pastel</span>
+                            </div>
                         </div>
-                        <span class="text-white fw-semibold">+500 clientes satisfechos</span>
+                        
+                        <div>
+                            <label class="fw-bold mb-2 text-pastel-pink d-block">2. Selecciona tu Talla (US):</label>
+                            <div class="d-flex flex-wrap gap-2">
+                                <button class="size-btn" onclick="selectSize(this, '36')">36</button>
+                                <button class="size-btn active" onclick="selectSize(this, '37')">37</button>
+                                <button class="size-btn" onclick="selectSize(this, '38')">38</button>
+                                <button class="size-btn" onclick="selectSize(this, '39')">39</button>
+                                <button class="size-btn" onclick="selectSize(this, '40')">40</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="d-grid d-sm-flex gap-3">
-                        <a href="#oferta" class="btn btn-primary btn-lg custom-btn">COMPRAR AHORA</a>
-                        <a href="https://wa.me/1234567890?text=Hola,%20quiero%20más%20información" target="_blank" class="btn btn-outline-light btn-lg custom-btn-outline">
-                            <i class="fa-brands fa-whatsapp me-2 text-success"></i> WhatsApp
+
+                    <!-- Botones de Acción -->
+                    <div class="d-grid d-sm-flex gap-3 mb-4">
+                        <button onclick="triggerPurchase()" class="btn btn-pink btn-lg">
+                            <i class="fa-solid fa-cart-shopping me-2"></i> COMPRAR AHORA
+                        </button>
+                        <a href="https://wa.me/1234567890?text=Hola,%20quiero%20consultar%20por%20las%20botas%20de%20plataforma" target="_blank" class="btn btn-blue-outline btn-lg">
+                            <i class="fa-brands fa-whatsapp me-2"></i> WhatsApp
                         </a>
                     </div>
-                    <!-- Badges -->
-                    <div class="row mt-4 pt-3 border-top border-secondary text-light opacity-75 g-2">
-                        <div class="col-4"><i class="fa-solid fa-truck text-info me-1"></i> Envío Nacional</div>
-                        <div class="col-4"><i class="fa-solid fa-shield-halved text-success me-1"></i> Pago 100% Seguro</div>
-                        <div class="col-4"><i class="fa-solid fa-rotate-left text-warning me-1"></i> Garantía 30 días</div>
+
+                    <!-- Insignias -->
+                    <div class="row pt-3 border-top border-secondary text-light opacity-75 g-2">
+                        <div class="col-4"><i class="fa-solid fa-truck text-pastel-blue me-1"></i> Envío Exprés</div>
+                        <div class="col-4"><i class="fa-solid fa-shield-cat text-pastel-pink me-1"></i> 100% Vegano</div>
+                        <div class="col-4"><i class="fa-solid fa-rotate-left text-warning me-1"></i> Cambios Gratis</div>
                     </div>
                 </div>
+
+                <!-- Imagen Principal con Previsualizador -->
                 <div class="col-lg-6 mt-5 mt-lg-0 text-center" data-aos="zoom-in">
-                    <div class="hero-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1000&auto=format&fit=crop" alt="Producto Principal" class="img-fluid rounded-4 shadow-lg hero-img">
+                    <div class="hero-img-container">
+                        <img id="mainProductImg" src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?q=80&w=1000&auto=format&fit=crop" alt="Botas con Plataforma Alt" class="img-fluid rounded-4 hero-img">
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Beneficios (¿Por qué elegir nuestro producto?) -->
+    <!-- Beneficios -->
     <section class="py-5 bg-black text-white">
         <div class="container py-5">
             <div class="text-center mb-5" data-aos="fade-up">
-                <h2 class="display-5 fw-bold">¿Por qué elegir nuestro producto?</h2>
-                <p class="text-muted">Diseñado con los estándares de calidad más altos</p>
+                <h2 class="display-5 text-pastel-pink">¿Por qué nuestras plataformas?</h2>
+                <p class="text-muted">Diseño extremo sin sacrificar tu comodidad</p>
             </div>
             <div class="row g-4">
                 <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
                     <div class="glass-card p-4 text-center h-100">
-                        <i class="fa-solid fa-circle-check icon-gradient mb-3"></i>
-                        <h4>Beneficio 1</h4>
-                        <p class="text-muted fs-6">Alta durabilidad y rendimiento garantizado desde el primer uso.</p>
+                        <i class="fa-solid fa-layer-group icon-gradient-pink mb-3"></i>
+                        <h4>Plataforma Ultra Lite</h4>
+                        <p class="text-muted fs-6">Suela sobredimensionada de EVA ligera para usarlas todo el día sin fatiga.</p>
                     </div>
                 </div>
                 <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
                     <div class="glass-card p-4 text-center h-100">
-                        <i class="fa-solid fa-circle-check icon-gradient mb-3"></i>
-                        <h4>Beneficio 2</h4>
-                        <p class="text-muted fs-6">Diseño ergonómico y moderno estilo minimalista.</p>
+                        <i class="fa-solid fa-heart-crack icon-gradient-blue mb-3"></i>
+                        <h4>Estética Pastel Goth</h4>
+                        <p class="text-muted fs-6">Fusión única entre detalles góticos oscuros y tonos pastel de tendencia.</p>
                     </div>
                 </div>
                 <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
                     <div class="glass-card p-4 text-center h-100">
-                        <i class="fa-solid fa-circle-check icon-gradient mb-3"></i>
-                        <h4>Beneficio 3</h4>
-                        <p class="text-muted fs-6">Fácil de usar e integrar en tu rutina diaria sin complicaciones.</p>
+                        <i class="fa-solid fa-lock icon-gradient-pink mb-3"></i>
+                        <h4>Ajuste y Hebillas</h4>
+                        <p class="text-muted fs-6">Doble cordón reforzado y hebillas metálicas antioxidantes.</p>
                     </div>
                 </div>
                 <div class="col-md-3" data-aos="fade-up" data-aos-delay="400">
                     <div class="glass-card p-4 text-center h-100">
-                        <i class="fa-solid fa-circle-check icon-gradient mb-3"></i>
-                        <h4>Beneficio 4</h4>
-                        <p class="text-muted fs-6">Soporte técnico continuo y garantía total ante cualquier eventualidad.</p>
+                        <i class="fa-solid fa-feather icon-gradient-blue mb-3"></i>
+                        <h4>100% Cuero Sintético</h4>
+                        <p class="text-muted fs-6">Materiales libres de crueldad animal, resistentes al agua y fáciles de limpiar.</p>
                     </div>
                 </div>
             </div>
@@ -113,109 +394,51 @@
     </section>
 
     <!-- Galería de Fotos -->
-    <section class="py-5 bg-dark-custom text-white">
+    <section class="py-5 bg-dark text-white">
         <div class="container py-5">
-            <h2 class="text-center display-6 fw-bold mb-5" data-aos="fade-up">Galería del Producto</h2>
+            <h2 class="text-center display-6 text-pastel-blue mb-5" data-aos="fade-up">Galería de Estilos</h2>
             <div class="row g-4">
                 <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="100">
-                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=500&auto=format&fit=crop" class="img-fluid rounded-4 gallery-img shadow" alt="Foto 1">
+                    <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=600&auto=format&fit=crop" class="img-fluid rounded-4 gallery-img shadow" alt="Botas Foto 1" onclick="changeMainImg(this.src)">
                 </div>
                 <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="https://images.unsplash.com/photo-1484704849700-f032a568e944?q=80&w=500&auto=format&fit=crop" class="img-fluid rounded-4 gallery-img shadow" alt="Foto 2">
+                    <img src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?q=80&w=600&auto=format&fit=crop" class="img-fluid rounded-4 gallery-img shadow" alt="Botas Foto 2" onclick="changeMainImg(this.src)">
                 </div>
                 <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="300">
-                    <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?q=80&w=500&auto=format&fit=crop" class="img-fluid rounded-4 gallery-img shadow" alt="Foto 3">
+                    <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=600&auto=format&fit=crop" class="img-fluid rounded-4 gallery-img shadow" alt="Botas Foto 3" onclick="changeMainImg(this.src)">
                 </div>
                 <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="400">
-                    <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?q=80&w=500&auto=format&fit=crop" class="img-fluid rounded-4 gallery-img shadow" alt="Foto 4">
+                    <img src="https://images.unsplash.com/photo-1535043934128-cf0b28d52f95?q=80&w=600&auto=format&fit=crop" class="img-fluid rounded-4 gallery-img shadow" alt="Botas Foto 4" onclick="changeMainImg(this.src)">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ¿Cómo funciona? -->
-    <section class="py-5 bg-black text-white">
-        <div class="container py-5">
-            <h2 class="text-center display-6 fw-bold mb-5" data-aos="fade-up">¿Cómo funciona?</h2>
-            <div class="row text-center g-4">
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="step-number">1</div>
-                    <h4 class="mt-4">Haces tu pedido</h4>
-                    <p class="text-muted">Eliges la cantidad y confirmas con tus datos de envío.</p>
-                </div>
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="step-number">2</div>
-                    <h4 class="mt-4">Lo enviamos el mismo día</h4>
-                    <p class="text-muted">Procesamos rápido y te compartimos número de rastreo.</p>
-                </div>
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="step-number">3</div>
-                    <h4 class="mt-4">Lo recibes en tu domicilio</h4>
-                    <p class="text-muted">Pagas con seguridad y disfrutas tu compra inmediatamente.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Opiniones de Clientes -->
-    <section class="py-5 bg-dark-custom text-white">
-        <div class="container py-5">
-            <h2 class="text-center display-6 fw-bold mb-5" data-aos="fade-up">Opiniones de Clientes</h2>
-            <div class="row g-4">
-                <div class="col-md-4" data-aos="fade-up">
-                    <div class="glass-card p-4 h-100">
-                        <div class="stars text-warning mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                        <p class="text-light fs-5">"Excelente producto"</p>
-                        <p class="text-muted">Llegó súper rápido y la calidad superó mis expectativas totalmente.</p>
-                        <h6 class="fw-bold mb-0 text-white-50">— Juan P.</h6>
-                    </div>
-                </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="glass-card p-4 h-100">
-                        <div class="stars text-warning mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                        <p class="text-light fs-5">"Volvería a comprar"</p>
-                        <p class="text-muted">Atención de primera por WhatsApp y el producto es tal cual las fotos.</p>
-                        <h6 class="fw-bold mb-0 text-white-50">— María L.</h6>
-                    </div>
-                </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="glass-card p-4 h-100">
-                        <div class="stars text-warning mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                        <p class="text-light fs-5">"Entrega rápida"</p>
-                        <p class="text-muted">Lo pedí en la mañana y en menos de 24 horas ya lo tenía en casa.</p>
-                        <h6 class="fw-bold mb-0 text-white-50">— Roberto G.</h6>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- OFERTA DEL DÍA -->
-    <section id="oferta" class="py-5 bg-gradient-offer text-white">
+    <!-- OFERTA Y CHECKOUT -->
+    <section id="oferta" class="py-5 text-white" style="background: radial-gradient(circle, rgba(255,182,193,0.15) 0%, rgba(13,13,17,1) 90%);">
         <div class="container py-5 text-center">
             <div class="row justify-content-center">
                 <div class="col-lg-8" data-aos="zoom-in">
-                    <span class="badge bg-danger fs-6 px-3 py-2 mb-3"><i class="fa-solid fa-clock me-1"></i> OFERTA DEL DÍA</span>
-                    <h2 class="display-4 fw-bold mb-3">Aprovecha la Promoción Exclusiva</h2>
+                    <span class="badge bg-danger fs-6 px-3 py-2 mb-3"><i class="fa-solid fa-clock me-1"></i> OFERTA HASTA AGOTAR STOCK</span>
+                    <h2 class="display-4 fw-bold mb-3 text-pastel-pink">Consigue tu par con 30% OFF</h2>
                     
                     <!-- Countdown Timer -->
                     <div class="d-flex justify-content-center gap-3 my-4" id="countdown">
-                        <div class="time-box p-3 glass-card"><span id="hours" class="fs-2 fw-bold text-warning">02</span><small class="d-block text-uppercase">Hs</small></div>
-                        <div class="time-box p-3 glass-card"><span id="minutes" class="fs-2 fw-bold text-warning">45</span><small class="d-block text-uppercase">Min</small></div>
-                        <div class="time-box p-3 glass-card"><span id="seconds" class="fs-2 fw-bold text-warning">30</span><small class="d-block text-uppercase">Seg</small></div>
+                        <div class="time-box p-3 glass-card"><span id="hours" class="fs-2 fw-bold text-pastel-blue">02</span><small class="d-block text-uppercase">Hs</small></div>
+                        <div class="time-box p-3 glass-card"><span id="minutes" class="fs-2 fw-bold text-pastel-blue">45</span><small class="d-block text-uppercase">Min</small></div>
+                        <div class="time-box p-3 glass-card"><span id="seconds" class="fs-2 fw-bold text-pastel-blue">30</span><small class="d-block text-uppercase">Seg</small></div>
                     </div>
 
                     <div class="price-container mb-4">
-                        <span class="text-muted text-decoration-line-through fs-3 me-3">Antes $89.99</span>
-                        <span class="display-3 fw-bold text-success">Ahora $59.99</span>
-                        <div class="text-warning mt-2 fs-5"><i class="fa-solid fa-truck"></i> Envío GRATIS a todo el país</div>
+                        <span class="text-muted text-decoration-line-through fs-3 me-3">$120.00</span>
+                        <span class="display-3 fw-bold text-pastel-pink">$79.99</span>
+                        <div class="text-pastel-blue mt-2 fs-5"><i class="fa-solid fa-truck-fast"></i> Envíos a todo el país</div>
                     </div>
 
-                    <!-- Botones de Acción -->
                     <div class="d-grid gap-3 col-md-8 mx-auto">
-                        <a href="https://wa.me/1234567890?text=Hola,%20quiero%20aprovechar%20la%20oferta%20de%20$59.99" class="btn btn-success btn-lg custom-btn py-3 fs-4">
-                            <i class="fa-brands fa-whatsapp me-2"></i> COMPRAR
-                        </a>
+                        <button onclick="triggerPurchase()" class="btn btn-pink btn-lg py-3 fs-4">
+                            <i class="fa-solid fa-bag-shopping me-2"></i> ORDENAR MI PAR
+                        </button>
                     </div>
                 </div>
             </div>
@@ -225,36 +448,26 @@
     <!-- Preguntas Frecuentes -->
     <section class="py-5 bg-black text-white">
         <div class="container py-5">
-            <h2 class="text-center display-6 fw-bold mb-5" data-aos="fade-up">Preguntas Frecuentes</h2>
+            <h2 class="text-center display-6 text-pastel-blue mb-5" data-aos="fade-up">Preguntas Frecuentes</h2>
             <div class="accordion accordion-flush custom-accordion mx-auto col-lg-8" id="faqAccordion">
                 <div class="accordion-item bg-transparent text-white border-bottom border-secondary">
                     <h2 class="accordion-header">
                         <button class="accordion-button collapsed bg-transparent text-white fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                            ¿Cuánto tarda el envío?
+                            ¿Las plataformas son muy pesadas?
                         </button>
                     </h2>
                     <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body text-muted">Los envíos toman entre 24 y 48 horas hábiles hasta la puerta de tu domicilio.</div>
+                        <div class="accordion-body text-muted">¡Para nada! La suela está fabricada en polímero EVA aligerado, lo que reduce el peso en un 50% en comparación con botas convencionales.</div>
                     </div>
                 </div>
                 <div class="accordion-item bg-transparent text-white border-bottom border-secondary">
                     <h2 class="accordion-header">
                         <button class="accordion-button collapsed bg-transparent text-white fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                            ¿Tiene garantía?
+                            ¿Qué pasa si la talla no me queda?
                         </button>
                     </h2>
                     <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body text-muted">Sí, cuentas con 30 días de garantía directa de satisfacción y defectos de fábrica.</div>
-                    </div>
-                </div>
-                <div class="accordion-item bg-transparent text-white border-bottom border-secondary">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed bg-transparent text-white fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-                            ¿Cómo puedo pagar?
-                        </button>
-                    </h2>
-                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body text-muted">Aceptamos transferencias, tarjetas de crédito/débito y opciones de pago 100% seguro.</div>
+                        <div class="accordion-body text-muted">Ofrecemos el primer cambio de talla 100% gratis dentro de los primeros 15 días tras recibir tu producto.</div>
                     </div>
                 </div>
             </div>
@@ -262,26 +475,102 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-5 bg-dark-custom text-center text-white-50 border-top border-secondary">
+    <footer class="py-5 bg-dark text-center text-white-50 border-top border-secondary">
         <div class="container">
-            <h5 class="text-white mb-3">Síguenos</h5>
+            <h5 class="text-white mb-3 brand-font">DARK<span class="text-pastel-pink">PASTEL</span></h5>
             <div class="social-icons mb-4">
-                <a href="#" class="text-white mx-3 fs-3"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#" class="text-white mx-3 fs-3"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="text-white mx-3 fs-3"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="#" class="text-pastel-pink mx-3 fs-3"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="#" class="text-pastel-blue mx-3 fs-3"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="text-white mx-3 fs-3"><i class="fa-brands fa-pinterest"></i></a>
             </div>
-            <p class="mb-0">&copy;2026 Tu Marca. Todos los derechos reservados.</p>
+            <p class="mb-0">&copy;2026 DarkPastel Studio. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <!-- Widget Flotante de WhatsApp -->
-    <a href="https://wa.me/1234567890?text=Hola,%20tengo%20una%20consulta" class="whatsapp-float" target="_blank" title="Chat en WhatsApp">
+    <!-- Botón Flotante WhatsApp -->
+    <a href="https://wa.me/1234567890?text=Hola,%20me%20gustaría%20saber%20más%20sobre%20las%20botas" class="whatsapp-float" target="_blank" title="Contacto por WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- JS Scripts -->
+    <!-- Librerías de JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="script.js"></script>
+
+    <!-- JS Interactivo -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({ duration: 800, once: true });
+            startTimer(9900);
+        });
+
+        let selectedColor = "Rosa Pastel";
+        let selectedSize = "37";
+
+        function selectColor(element, colorName, imgSrc) {
+            document.querySelectorAll('.color-dot').forEach(dot => dot.classList.remove('active'));
+            element.classList.add('active');
+            selectedColor = colorName;
+            document.getElementById('selectedColorText').textContent = colorName;
+            
+            // Cambiar imagen según el color seleccionado
+            const mainImg = document.getElementById('mainProductImg');
+            mainImg.style.opacity = '0.3';
+            setTimeout(() => {
+                mainImg.src = imgSrc;
+                mainImg.style.opacity = '1';
+            }, 200);
+        }
+
+        function selectSize(element, size) {
+            document.querySelectorAll('.size-btn').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+            selectedSize = size;
+        }
+
+        function changeMainImg(src) {
+            const mainImg = document.getElementById('mainProductImg');
+            mainImg.style.opacity = '0.3';
+            setTimeout(() => {
+                mainImg.src = src;
+                mainImg.style.opacity = '1';
+            }, 200);
+        }
+
+        function triggerPurchase() {
+            const toast = document.getElementById('actionToast');
+            const message = document.getElementById('toastMessage');
+            message.textContent = `¡Añadido! Botas (${selectedColor}, Talla ${selectedSize}) cargadas al carrito.`;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3500);
+        }
+
+        function startTimer(durationInSeconds) {
+            let timer = durationInSeconds;
+            const hoursSpan = document.getElementById('hours');
+            const minutesSpan = document.getElementById('minutes');
+            const secondsSpan = document.getElementById('seconds');
+
+            setInterval(function () {
+                let hours = parseInt(timer / 3600, 10);
+                let minutes = parseInt((timer % 3600) / 60, 10);
+                let seconds = parseInt(timer % 60, 10);
+
+                hours = hours < 10 ? "0" + hours : hours;
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                if (hoursSpan) hoursSpan.textContent = hours;
+                if (minutesSpan) minutesSpan.textContent = minutes;
+                if (secondsSpan) secondsSpan.textContent = seconds;
+
+                if (--timer < 0) {
+                    timer = durationInSeconds;
+                }
+            }, 1000);
+        }
+    </script>
 </body>
 </html>
